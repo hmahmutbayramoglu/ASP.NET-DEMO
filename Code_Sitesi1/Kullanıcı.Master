@@ -1,0 +1,72 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Kullanıcı.master.cs" Inherits="Code_Sitesi1.Kullanıcı" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>KOD YARDIM</title>
+    <link href="/Tasarım.css" rel="stylesheet" />
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+            height: 39px;
+        }
+        .auto-style2 {
+            text-align: center;
+            text-decoration: underline;
+            background-color: #C5D8D3;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div style="height: 153px; width: 1008px; margin-left: 153px; background-color: #1C1C1C;">
+            <asp:Image ID="Image1" runat="server" Height="125px" style="margin-left: 448px; margin-top: 13px;" Width="217px" ImageUrl="~/resimler/logo_free-file (2).png" />
+        </div>
+        <div style="height: 20px; width: 675px; margin-left: 355px; background-color: #FFFFFF;"></div>
+        <div style="height: 40px; width: 675px; margin-left: 355px; background-color: white; color: white;">
+            <table class="auto-style1" >
+                <tr>
+                    <td class="auto-style2"><a href="Anasayfa.aspx">ANA SAYFA </a></td>
+                    <td class="auto-style2"><a href="GününKodu.aspx">GÜNÜ KODU </a></td>
+                    <td class="auto-style2"><a href="KodGönder.aspx">KOD GÖNDER</a></td>
+                    <td class="auto-style2"><a href="Hakkımızda.aspx">HAKKIMIZDA </a></td>
+                    <td class="auto-style2"><a href="İletişim.aspx">İLETİŞİM </a></td>
+                </tr>
+            </table>
+        </div>
+        <div style="height: 20px; width: 675px; margin-left: 355px; background-color: #FFFFFF;">  </div>
+
+        <div style="height: 450px; width: 1010px;  margin-left: 150px; background-color: #FFFFFF;">
+            <div style="height:auto; width:200px; float:left; background-color: #1C1C1C">  
+                <asp:DataList ID="DataList1" runat="server" CellPadding="4" DataSourceID="SqlDataSource2" ForeColor="Black" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" GridLines="Horizontal" Width="205px" style="margin-left: 0px; margin-right: 0px">
+                    <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                    <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
+                    <ItemTemplate>
+
+                        <asp:Label ID="kategoriadLabel" runat="server" Text='<%# Eval("kategoriad") %>' />
+                        &nbsp;&lt; <asp:Label ID="Label1" runat="server" Text='<%# Eval("kategoriadet", "{0}") %>'></asp:Label>
+                        &gt;<br />
+                        <br />
+                    </ItemTemplate>
+                    <SelectedItemStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
+                </asp:DataList>
+                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Yazılım_SitesiConnectionString %>" SelectCommand="SELECT [kategoriad], [kategoriadet] FROM [tbl_kategoriler]"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Yazılım_SitesiConnectionString %>" SelectCommand="SELECT [kategoriad], [kategoriid] FROM [tbl_kategoriler]"></asp:SqlDataSource>
+            </div>      
+            <div style="height:500px; width:784px; float:left;  margin-left:24px; background-color: #1C1C1C">  
+                
+                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+            </div>      
+        </div>
+
+    </form>
+</body>
+</html>
+

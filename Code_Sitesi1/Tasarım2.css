@@ -1,0 +1,23 @@
+﻿.a {
+    background-color: #351B23;
+    color : white;
+    font:bold 14px/30px large;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    width: 100px;
+    height: 30px;
+    position: relative;
+    &:before{
+                content :attr(data-hover);
+                position : absolute;
+                top:0;
+                left:0;
+                width: 100%;
+                background : #000000;
+                height: 30px;
+
+
+            }
+
+}
